@@ -1,0 +1,45 @@
+function [mList_clust_all, mList_clust, ClusterNum_clust, Y_all] = VoronoiN(d);
+
+for ROI=1; %ROI=1:size(d, 1);
+    for i=1:size(d, 2);
+        [mList_sub, mList_sub2] = GetXYZC_N(d{ROI,i});
+        %x=.2; %smaller values give larger/more permissive clustering
+        %V_thresh=1600/(x*length(d{ROI,i}.xc));
+        [mList_xy, area, DT, neighbors, neighbors_counts, visited, ClusterNum, ClusterSize] = VoronoiClusters(mList_sub2); %only running on subset in one color
+        [Y, temp_cl] = V_ClusterNumLocs_Test(mList_sub2, ClusterSize, ClusterNum); %new on 6/20/17
+        [ClusterNum, ClNum_unique] = RandomColorToCluster(mList_xy, ClusterNum, Y, .00001); %This chooses final clusters over a minimum volume and number of locs and assigns them a random color
+        [mList_clust, ClusterNum_clust] = ClustOnly(mList_xy, ClusterNum);
+        mList_clust_all{ROI,i} = mList_clust;
+        Y_all{ROI,i} = Y;
+        
+        display(['Processed ROI ' num2str(ROI) ', channel ' num2str(i)]);
+        
+        figure();
+        scatter(mList_xy(:,1), mList_xy(:,2), [], ClusterNum(:,2:4), '.'); %This will show clusters each in a color (with repeats), and non-included locs in white.
+        whitebg('white');
+        set(gcf, 'Color', 'white');
+        daspect([1 1 1]);
+        title('\color{white}2D Voronoi Clusters c1');
+        xlabel('nm x 10^4');
+        ylabel('nm x 10^4');
+    end
+end
+
+
+
+
+
+%figure();
+%scatter(mList_clust_all{5}(:,1), mList_clust_all{5}(:,2), 'y.'); hold on
+%scatter(mList_clust_all{1}(:,1), mList_clust_all{1}(:,2), 'c.'); hold on
+%scatter(mList_clust_all{2}(:,1), mList_clust_all{2}(:,2), 'm.'); hold on
+%scatter(mList_clust_all{3}(:,1), mList_clust_all{3}(:,2), 'g.'); hold on
+%scatter(mList_clust_all{4}(:,1), mList_clust_all{4}(:,2), 'k.'); hold on
+%daspect([1 1 1]);
+
+%next thing to write--regrouping this data with its associated other mList
+%parameters so that it can be written into a .bin file and viewed in
+%Insight3.
+
+end
+
