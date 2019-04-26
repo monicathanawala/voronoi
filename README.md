@@ -19,6 +19,9 @@ You will get the following plots:
 3. cleaned-up data showing only clusters, and
 4. a silhouette plot and 2D plot of clusters pseudo-colored with silhouette value*
 
+Example plots:
+
+
 as well as a data structure containing key characteristics of the identified clusters, such as volume, centroid in xyz dimensions, and density. 
 
 
