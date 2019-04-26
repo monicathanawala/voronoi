@@ -19,7 +19,6 @@ mList_xy(:, 2) = mList_1_sub2(:,2);
 %use this line if input is Nx2 array
 %mList_xy = P;
 
-%[v,c] = voronoin([mList_xy(:,1) mList_xy(:,2)]);
 DT = delaunayTriangulation(mList_xy(:,1),mList_xy(:,2));
 [vv,vc] = voronoiDiagram(DT);
 

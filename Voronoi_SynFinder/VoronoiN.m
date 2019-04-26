@@ -1,10 +1,8 @@
-function [mList_clust_all, mList_clust, ClusterNum_clust, Y_all] = VoronoiN(d);
+function [Y_all] = VoronoiN(d);
 
-for ROI=1; %ROI=1:size(d, 1);
+for ROI=1:size(d, 1);
     for i=1:size(d, 2);
         [mList_sub, mList_sub2] = GetXYZC_N(d{ROI,i});
-        %x=.2; %smaller values give larger/more permissive clustering
-        %V_thresh=1600/(x*length(d{ROI,i}.xc));
         [mList_xy, area, DT, neighbors, neighbors_counts, visited, ClusterNum, ClusterSize] = VoronoiClusters(mList_sub2); %only running on subset in one color
         [Y, temp_cl] = V_ClusterNumLocs_Test(mList_sub2, ClusterSize, ClusterNum); %new on 6/20/17
         [ClusterNum, ClNum_unique] = RandomColorToCluster(mList_xy, ClusterNum, Y, .00001); %This chooses final clusters over a minimum volume and number of locs and assigns them a random color
@@ -24,18 +22,6 @@ for ROI=1; %ROI=1:size(d, 1);
         ylabel('nm x 10^4');
     end
 end
-
-
-
-
-
-%figure();
-%scatter(mList_clust_all{5}(:,1), mList_clust_all{5}(:,2), 'y.'); hold on
-%scatter(mList_clust_all{1}(:,1), mList_clust_all{1}(:,2), 'c.'); hold on
-%scatter(mList_clust_all{2}(:,1), mList_clust_all{2}(:,2), 'm.'); hold on
-%scatter(mList_clust_all{3}(:,1), mList_clust_all{3}(:,2), 'g.'); hold on
-%scatter(mList_clust_all{4}(:,1), mList_clust_all{4}(:,2), 'k.'); hold on
-%daspect([1 1 1]);
 
 %next thing to write--regrouping this data with its associated other mList
 %parameters so that it can be written into a .bin file and viewed in
