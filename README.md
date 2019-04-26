@@ -14,3 +14,17 @@ _______
 You will get plots of the raw data, pseudo-colored clusters, cleaned-up data showing only clusters, and a data structure containing key characteristics of the identified clusters, such as volume, centroid in xyz dimensions, and density.
 Here we use the density parameter 2x of the average density, based on optimization presented by Levet et al., and confirmed with my own dataset, but this parameter can be tweaked if necessary.
 
+
+Files
+-----
+GetXYZC_N
+neighborsList
+VoronoiClusters
+RandomColorToCluster
+V_ClusterNumLocs_Test
+VoronoiN: a simplified version to run exclusively on single-color
+  experiments, either alone or taken in series with other color. Can run on N colors. 
+FindNearbyClusters: in progress, used to detect clusters near a certain cluster
+
+
+Last updated: April 2019
