@@ -25,18 +25,6 @@ for ROI=1; %ROI=1:size(d, 1);
     end
 end
 
-
-
-
-
-%figure();
-%scatter(mList_clust_all{5}(:,1), mList_clust_all{5}(:,2), 'y.'); hold on
-%scatter(mList_clust_all{1}(:,1), mList_clust_all{1}(:,2), 'c.'); hold on
-%scatter(mList_clust_all{2}(:,1), mList_clust_all{2}(:,2), 'm.'); hold on
-%scatter(mList_clust_all{3}(:,1), mList_clust_all{3}(:,2), 'g.'); hold on
-%scatter(mList_clust_all{4}(:,1), mList_clust_all{4}(:,2), 'k.'); hold on
-%daspect([1 1 1]);
-
 %next thing to write--regrouping this data with its associated other mList
 %parameters so that it can be written into a .bin file and viewed in
 %Insight3.
