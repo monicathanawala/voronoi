@@ -16,16 +16,14 @@
 % Files
 % -----
 
-% GetXYZC_2d: 
-% GetXYZC_N:
-% neighborsList:
-% VoronoiClusters:
-% RandomColorToCluster:
-% V_ClusterNumLocs_Test:
-% RunVoronoi2: an early version I wrote to deal with 2-color multiactivator
-%   (simultaneous multicolor) experiments as well as single-color and multi-color multireporter. 
+% GetXYZC_N
+% neighborsList
+% VoronoiClusters
+% RandomColorToCluster
+% V_ClusterNumLocs_Test
 % VoronoiN: a simplified version to run exclusively on single-color
 %   experiments, either alone or taken in series with other color. Can run on N colors. 
+% FindNearbyClusters: in progress, used to detect clusters near a certain cluster
 
 
 % Last updated: April 2019
