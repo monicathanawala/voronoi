@@ -10,10 +10,18 @@ Getting Started
 This version requires two- or three-dimensional data imported into MATLAB. It also requires the function Centroid written by David Legland (https://www.mathworks.com/matlabcentral/profile/authors/127343-david-legland). 
 There's an example dataset in : .
 
-Run an example analysis by entering:
-_______
-You will get plots of the raw data, pseudo-colored clusters, cleaned-up data showing only clusters, and a data structure containing key characteristics of the identified clusters, such as volume, centroid in xyz dimensions, and density.
-Here we use the density parameter 2x of the average density, based on optimization presented by Levet et al., and confirmed with my own dataset, but this parameter can be tweaked if necessary.
+Run clustering on the sample dataset by entering:
+[mList_clust_all, mList_clust, ClusterNum_clust, Y_all] = VoronoiN(d);
 
+You will get the following plots:
+1. the raw data, 
+2. pseudo-colored clusters displayed with unclustered points in black, 
+3. cleaned-up data showing only clusters, and
+4. a silhouette plot and 2D plot of clusters pseudo-colored with silhouette value*
+
+as well as a data structure containing key characteristics of the identified clusters, such as volume, centroid in xyz dimensions, and density. 
+
+
+*silhouette plots are not the best way to evaluate goodness of clusters that are not expected to be gaussian. For many biological structures, the silhouette values will be poor. However, for other spherical/amorphous clusters, the silhouette plots can be helpful, so I've left them in!
 
 Last updated: April 2019
