@@ -1,10 +1,8 @@
-function [mList_clust_all, mList_clust, ClusterNum_clust, Y_all] = VoronoiN(d);
+function [Y_all] = VoronoiN(d);
 
-for ROI=1; %ROI=1:size(d, 1);
+for ROI=1:size(d, 1);
     for i=1:size(d, 2);
         [mList_sub, mList_sub2] = GetXYZC_N(d{ROI,i});
-        %x=.2; %smaller values give larger/more permissive clustering
-        %V_thresh=1600/(x*length(d{ROI,i}.xc));
         [mList_xy, area, DT, neighbors, neighbors_counts, visited, ClusterNum, ClusterSize] = VoronoiClusters(mList_sub2); %only running on subset in one color
         [Y, temp_cl] = V_ClusterNumLocs_Test(mList_sub2, ClusterSize, ClusterNum); %new on 6/20/17
         [ClusterNum, ClNum_unique] = RandomColorToCluster(mList_xy, ClusterNum, Y, .00001); %This chooses final clusters over a minimum volume and number of locs and assigns them a random color
