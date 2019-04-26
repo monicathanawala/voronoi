@@ -8,6 +8,7 @@ It is currently written to use two scripts from ZhuangLab/matlab-storm to read i
 
 
 Getting Started
+
 This version requires two- or three-dimensional data imported into MATLAB.
 Run an example analysis on your data using the function VoronoiN:
 
