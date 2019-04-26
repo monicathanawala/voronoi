@@ -36,10 +36,10 @@ end
 %% Define the subregion for clustering analysis in pixels. Choose 0 and 256
 % if you want full image
 
-xmin=140;
-xmax=180;
-ymin=90;
-ymax=110;
+xmin=0;
+xmax=256;
+ymin=0;
+ymax=256;
 
 i3=1;
 
